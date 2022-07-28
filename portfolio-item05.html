@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Header -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=divice-width, initial-scale=1.0">
+    <title>Tyler Clark's Porfolio</title>
+    <link rel="stylesheet" href="css/stylesheet.css">
+    <script src="https://kit.fontawesome.com/c41026c589.js" crossorigin="anonymous"></script>
+
+
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="asdasd" alt="">
+
+        </div>
+
+        <button class="nav-toggle" aria-label="toggle navigation">
+            <span class="hamburger"></span>
+        </button>
+
+        <nav class="nav">
+            <ul class="nav__list">
+                <li class="nav__item"><a href="index.html" class="nav__link">Home</a></li>
+                <li class="nav__item"><a href="index.html#services" class="nav__link">About Me</a></li>
+                <li class="nav__item"><a href="index.html#work" class="nav__link">My Work</a></li>
+                <li class="nav__item"><a href="#aboutMe" class=" nav__link">Inquiries</a></li>
+
+            </ul>
+
+        </nav>
+
+
+    </header>
+
+    <!-- Introduction -->
+    <section class="intro">
+        <h1 class="section__title section__title--intro">
+            Front End Face <strong> myFlix(Angular)</strong>
+        </h1>
+        <p class="section_subtitle section__subtitle--intro">An App For A List Of Movies</p>
+        <img src="https://i.imgur.com/vqr0hLv.png" alt="PICTURE OF MY COOL STUFF" class="intro__img">
+        <a href="index.html#work" Work class="btn__return">Return To Home</a>
+    </section>
+
+    <div class="portfolio-item-individual">
+        <section>
+            <h3><u>Project:MyFlix(Angular Front end)</u></h3>
+            <h4><u>Overview</u></h4>
+            <p>
+                The goal of this project was to create a front end to use the movie API I created in a previous
+                achievement
+                as part of my Full-Stack Immersion Program at CareerFoundry.
+                It aimed to pull everything that I had learned together and to solve the problem of the myFlix API
+                needing a
+                front end to fully function.
+            </p>
+            <img src="https://i.imgur.com/p634AoF.png" alt="movieList" class="movie_List">
+
+            <h4><u>Specifications:</u></h4>
+            <p>
+                On this project, I acted as both the front and back end developer. The API was built from scratch by me,
+                as well
+                as hosting and maintaining all of the server-side information. The project took about one month to
+                complete.
+            </p>
+
+            <h3><u>Process</u></h3>
+            <h4><u>Client-Side:</u></h4>
+            <p>
+                The process began with organizing much of the basic setup of Angular. Installing different frameworks
+                and
+                organizing files in such a way to build the basic steps of the application.
+            </p>
+            <img src="https://i.imgur.com/Umq9UJE.png" alt="repository" class="repo_List">
+
+            <p>
+                Most of it was in creating different cards and views to allow the user to sign in /
+                register / access the information such as movie director and
+                genre of movie associated with each film.
+            </p>
+            <img src="https://i.imgur.com/ieGTlMQ.png" alt="genreCard" class="genre_Card">
+
+            <p>
+                Much of the setup was involved with creating a basic angular template and then writing new code to
+                facilitate
+                each part of the project. The project's stated goals were to:
+            </p>
+            <ul>
+                <li>Allow the user to sign up</li>
+                <li>Allow the user to sign in</li>
+                <li>Allow the user to see their own profile, with matching information to reflect their sign up data
+                </li>
+                <li>Allows the user to view movies from the repository, as well as allowing users to add any of the
+                    movies to
+                    their favorites which can be accessed on their profile</li>
+            </ul>
+
+            <h4><u>Server-Side:</u></h4>
+            <p>
+                After the setup of the front end to support the endpoints, I began linking the back end created in a
+                previous
+                project to the new functions that were required to make it run. For example,
+            </p>
+            <img src="https://i.imgur.com/WtFGAMR.png" alt="functionGetFavoriteMovies" class="function_getMovies">
+
+
+            <p>
+                This is a function that returns a user's favorite movie, annotated with comments to keep things clean
+                and
+                readable while also informing its' purpose.
+                It gets the endpoint (users/:Username/movies/:MovieID)
+                from the API's code for use on the front end to display that information.
+                In this case, we're dealing with favorite movies.
+            </p>
+            <img src="https://i.imgur.com/H9RLGXw.png" alt="movieEndPoints" class="function_endPoints">
+
+            <h4><u>Full Stack:</u></h4>
+            <p>
+                The final stretch of putting this application together was mostly additions similar to the example shown
+                above.
+                A challenge I overcame was displaying the user's information. The endpoints had to be modified
+                on the back end to properly display the user's birthday. With that feature done, the
+                application was finished!
+            </p>
+            <img src="https://i.imgur.com/XEIY0FN.png" alt="profileInfo" class="function_endPoints">
+
+            <h3><u>Conclusions </u></h3>
+            <h4><u>Challenges faced:</u></h4>
+            <p>
+                When beginning the project, The API hosted on Heroku and on MongoDB
+                were both hosting the information properly
+                but were not working when I started testing the Angular application.
+                This was a long standing challenge to find a solution for.
+                I did a clean reset to both systems, re-hooked them back together
+                and deployed new versions of all of them.
+                It was here that I learned that file hosting platforms have
+                to be constantly watched over and maintained in
+                order for them to stay online and operational.
+                Otherwise, one piece will fall offline and render the entire project unusable.
+                There are many unseen pitfalls of web development that have to be fallen into in order to
+                learn the important minutiae that more experienced developers take as given.
+            </p>
+
+            <h4><u>Reflections:</u></h4>
+            <p>
+                Learning angular while also trying to integrate it into an
+                old project made for one of the most difficult coding
+                challenges I've ever faced.
+                A few parts of my older project had to be re-done in the service of making it a
+                smoother experience to use when dealing with the front end.
+                There's a lot that I learned when making a template / design document for this project,
+                and I likely would have done a lot different had I the chance to re-do it again.
+                That's the beauty of learning new things when making a project!
+                You begin to understand the practical upsides of “best practices”
+                and why something is done the way it is.
+                Seeing them work in tandem was motivational and made me excited for what I can make in the future.
+
+            </p>
+
+        </section>
+
+
+        <a href="https://github.com/TiroV/MyFlix-Angular-Client" target="_blank" style="width:100%;
+                display:block;
+                text-align:center;
+                padding:.5em;
+                background-color:#e02e16;
+                color:#fff;
+                border-radius:6px;
+                box-shadow:2px 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08);
+                text-decoration:none">See it on Github</a>
+
+
+
+    </div>
+
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <a href="mailto:tylermvclark@gmail.com" class="footer-link">tylermvclark@gmail.com
+            <ul class="social-list">
+                <li class="social-list__item">
+                    <a class="social-list__link" href="https://github.com/TiroV"><i class="fa-brands fa-github"></i></a>
+                </li>
+                <li class="social-list__item">
+                    <a class="social-list__link" href="https://twitter.com/v_tiro"><i
+                            class="fa-brands fa-twitter"></i></a>
+                </li>
+                <li class="social-list__item">
+                    <a class="social-list__link" href="https://www.linkedin.com/in/tiro-v-3a626b242/"><i
+                            class="fa-brands fa-linkedin"></i></a>
+                </li>
+                <li class="social-list__item">
+                    <a class="social-list__link" href="https://medium.com/@TiroV"><i
+                            class="fa-brands fa-medium"></i></a>
+                </li>
+
+            </ul>
+
+        </a>
+    </footer>
+
+
+    <script src="js/index.js"></script>
+</body>
+
+</html>
