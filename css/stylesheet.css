@@ -243,20 +243,21 @@ header {
 
 }
 
-.nav-open .hamburger {
+/* Skulls */
+.nav-open .Skulls {
     transform: rotate(.625turn);
 
 }
 
-.nav-open .hamburger::before {
+.nav-open .Skulls::before {
     transform: rotate(90deg) translateX(-6px);
 }
 
-.nav-open .hamburger::after {
+.nav-open .Skulls::after {
     opacity: 0;
 }
 
-.hamburger {
+.Skulls {
     background: var(--clr-accent);
     width: 2em;
     height: 3px;
@@ -267,8 +268,8 @@ header {
 
 }
 
-.hamburger::before,
-.hamburger::after {
+.Skulls::before,
+.Skulls::after {
     background: var(--clr-accent);
     width: 2em;
     height: 3px;
@@ -278,8 +279,8 @@ header {
 
 }
 
-.hamburger::before,
-.hamburger::after {
+.Skulls::before,
+.Skulls::after {
     content: '';
     position: absolute;
     left: 0;
@@ -288,16 +289,16 @@ header {
 
 }
 
-.hamburger::before {
+.Skulls::before {
     top: 6px;
 }
 
-.hamburger::after {
+.Skulls::after {
     bottom: 6px;
 }
 
 
-/* Intro Section */
+/* Home Section */
 
 .intro {
     position: relative;
@@ -345,9 +346,9 @@ header {
     }
 }
 
-/* My Services Section */
+/* How May I Serve You? */
 
-/* What I Do Section */
+/* Three boxes, moon hanging low */
 .my-services {
     background-color: var(--clr-dark);
     background-image: url(https://i.imgur.com/LMvf3Zm.png);
