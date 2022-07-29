@@ -12,9 +12,9 @@
     --fw-reg: 300;
     --fw-bold: 900;
 
-    --clr-light: #333;
+    --clr-light: #2D6FAA;
     --clr-dark: #fff;
-    --clr-accent: #e02e16;
+    --clr-accent: #4685C6;
 
     --fs-h1: 3rem;
     --fs-h2: 2.25rem;
@@ -352,10 +352,10 @@ header {
 /* Three boxes, moon hanging low */
 .my-services {
     background-color: var(--clr-dark);
-    background-image: url(https://i.imgur.com/LMvf3Zm.png);
+    /* background-image: url(https://i.imgur.com/LMvf3Zm.png); */
     background-size: cover;
     background-blend-mode: mulitply;
-    color: var(white);
+    color: black;
     text-align: center;
 
 }
@@ -486,13 +486,13 @@ header {
 
 .footer {
     background: #111;
-    color: var(--clr-accent);
+    color: var(--clr-dark);
     text-align: center;
     padding: 2.5em 0;
     font-size: var(--fs-h3);
     /* Blergh */
-    background-color: var(--clr-dark);
-    background-image: url(https://i.imgur.com/Jk3UQYm.jpg);
+    background-color: var(--clr-light);
+    /*background-image: url(https://i.imgur.com/Jk3UQYm.jpg);*/
     background-size: cover;
     background-blend-mode: mulitply;
 
