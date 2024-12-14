@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 
-/* custom properties */
+/* custom properties for colors and other such things */
 :root {
     --ff-primary: 'Source code Pro', sans-serif;
     --ff-secondary: 'Source Code Pro', monospace;
@@ -12,9 +12,10 @@
     --fw-reg: 300;
     --fw-bold: 900;
 
-    --clr-light: #333;
-    --clr-dark: #fff;
-    --clr-accent: #e02e16;
+    --clr-light: #333; /* Header Grey */
+    --clr-dark: #fff; /* White Background */
+    --clr-accent: #e02e16; /* Red Text */
+    --clr-whitebackground:#594852; /* New BG white color but purple */
 
     --fs-h1: 3rem;
     --fs-h2: 2.25rem;
@@ -443,9 +444,9 @@ header {
     }
 }
 
-/* My Work */
+/* Discography */
 .my-work {
-    background-color: var(--clr-dark);
+    background-color: var(--clr-whitebackground);
     color: var(--clr-light);
     text-align: center;
 
