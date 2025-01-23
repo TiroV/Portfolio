@@ -16,15 +16,16 @@
     --clr-dark: #fff; /* White Background */
     --clr-accent: #e02e16; /* Red Text */
     --clr-whitebackground:#594852; /* New BG white color but purple */
-
+    --clr-gold: #e5f018; /* Gold color weight */
+    --clr-grey: #7f8079; /*Grey color */
     --fs-h1: 3rem;
     --fs-h2: 2.25rem;
     --fs-h3: 1.25rem;
     --fs-h4: 1.2rem;
     --fs-body: 1rem;
 
-    --boxShadow: 0.25em 0.25em 0.75em rgba (0, 0, 0, .25),
-        0.125em 0.125 0.25em rgba (0, 0, 0, .15);
+    --boxShadow: 0.25em 0.25em 0.75em rgba(0, 0, 0, .25), 0.125em 0.125em 0.25em rgba(0, 0, 0, .6);
+
 
 }
 
@@ -54,7 +55,7 @@ body {
 }
 
 section {
-    padding: 5em 2em;
+    padding: 6em 2em;
 }
 
 img {
@@ -89,7 +90,7 @@ strong {
 
 .btn__return {
     display: inline-block;
-    padding: .5em 2.5em;
+    padding: 1.2em 2.5em;
     background: var(--clr-accent);
     color: var(--clr-dark);
     text-decoration: none;
@@ -101,6 +102,8 @@ strong {
     transition: transform 200ms ease-in-out;
 
 }
+
+
 
 .btn:hover {
     transform: scale(1.1);
@@ -182,6 +185,13 @@ header {
 
 }
 
+.section__title--discography {
+    text-decoration: underline; /* Adds an underline to the text */
+    text-decoration-thickness: 2px; /* Optional: Adjust thickness of the underline */
+    text-underline-offset: 5px; /* Optional: Adds space between the text and the underline */
+    margin-bottom: 1.5em; /* Adds space between the title and the red bar */
+}
+
 /* navbar */
 .nav {
     position: fixed;
@@ -204,7 +214,7 @@ header {
     list-style: none;
     display: flex;
     height: 100%;
-    flex-direction: colum;
+    flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
     margin: 0;
@@ -215,7 +225,7 @@ header {
 
 .nav__link {
     color: inherit;
-    font-weight: var(--fwb-bold);
+    font-weight: var(--fw-bold);
     font-size: var(--fs-h4);
     text-decoration: underline;
 }
@@ -304,10 +314,70 @@ header {
 
 .intro {
     position: relative;
+    background-color: var(--clr-light); /* Fallback background color */
+    background-image: radial-gradient(circle, var(--clr-accent) 5%, transparent 5%);
+    background-size: 50px 50px; /* Circle size and spacing */
+    background-position: center center; /* Ensure it's centered */
+    background-repeat: repeat; /* Repeat the pattern across the entire intro section */
 }
+
+/*Intro link styling*/
+/* Link styling */
+.intro-link {
+    color: var(--clr-light); /* Theme's accent color */
+    text-decoration: none; /* Remove underline */
+    font-weight: var(--fw-bold); /* Bold text */
+    position: relative; /* Needed for pseudo-elements */
+    display: inline-block; /* Allows animation effects */
+    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+/* Add a bouncing underline animation */
+.intro-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -0.2em; /* Place it just below the text */
+    width: 100%;
+    height: 2px;
+    background-color: var(--clr-gold);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Hover effects */
+.intro-link:hover {
+    color: var(--clr-gold); /* Change text color */
+    transform: scale(1.1); /* Make it slightly larger */
+}
+
+.intro-link:hover::after {
+    transform: scaleX(1); /* Expand underline */
+    transform-origin: left;
+}
+
+/* Optional: Add continuous animation */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+.intro-link {
+    animation: pulse 1.5s infinite; /* Makes the link gently "pulse" */
+}
+
+
+
 
 .intro__img {
     box-shadow: var(--boxShadow)
+    max-width: 100%;
+    height: auto;
 }
 
 @media (min-width: 600px) {
@@ -328,6 +398,8 @@ header {
         min-width: 250px;
         position: relative;
         z-index: 2;
+        max-width: 100%;
+    height: auto;
     }
 
     .intro__img-reverse {
@@ -353,13 +425,78 @@ header {
 /* Three boxes, moon hanging low */
 .my-services {
     background-color: var(--clr-dark);
-    background-image: url(https://i.imgur.com/LMvf3Zm.png);
+    background-image: url(https://i.imgur.com/LMvf3Zm.png); /* Red Moon Image */
     background-size: cover;
-    background-blend-mode: mulitply;
+    background-blend-mode: multiply;
     color: var(white);
     text-align: center;
 
 }
+
+.my-work {
+    position: relative;
+    z-index: 1; /* Keep the main content above the background */
+}
+
+.button-wrapper {
+    display: flex;
+    justify-content: center; /* Ensure horizontal centering */
+    align-items: center;    /* Vertical alignment (if needed) */
+    width: 100%;            /* Full width ensures proper centering */
+}
+
+.my-work::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://i.imgur.com/LMvf3Zm.png'); /* Red moon image */
+    background-size: cover; /* Ensure the image covers the section */
+    background-position: center; /* Center the image */
+    filter: invert(1) opacity(0.5); /* Invert colors and set opacity */
+    z-index: -1; /* Place behind the content */
+    pointer-events: none; /* Ensure the background doesn't interfere with interactions */
+}
+
+.section__title--discography {
+    position: relative;
+    display: inline-block; /* Ensures the underline aligns with the title */
+    margin-bottom: 7em; /* Add spacing between the title and the decorative line */
+}
+
+.section__title--discography::after {
+    content: '';
+    position: absolute;
+    left: 50%; /* Center align */
+    transform: translateX(-50%); /* Adjust for perfect centering */
+    bottom: -5px; /* Distance between the title and the box */
+    width: 300px; /* Adjust the box width as needed */
+    height: 4px; /* Thickness of the line */
+    background: var(--clr-accent); /* Use your red color for consistency */
+    border-radius: 4px; /* Optional: Adds rounded edges */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.75); /* Optional: Adds a soft shadow */
+}
+
+
+
+/* Background image with inverted colors */
+.my-work::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url(https://i.imgur.com/LMvf3Zm.png); /* Same background as .my-services */
+    background-size: cover;
+    background-blend-mode: multiply;
+    filter: invert(1); /* Inverts colors */
+    opacity: 0.75; /* 75% opacity */
+    z-index: -1; /* Ensures background stays behind the content */
+}
+
 
 .section__title--services {
     color: var(--clr-accent);
@@ -409,6 +546,7 @@ header {
 
 .about-me__img {
     box-shadow: var(--boxShadow);
+     transform: scaleX(-1); /* Flips the image horizontally */
 }
 
 @media (min-width: 600px) {
@@ -450,6 +588,8 @@ header {
     color: var(--clr-light);
     text-align: center;
 
+
+
 }
 
 /* The space where the images are displayed */
@@ -487,12 +627,11 @@ header {
 
 .footer {
     background: #111;
-    color: var(--clr-accent);
+    color: var(--clr-gold);
     text-align: center;
     padding: 2.5em 0;
     font-size: var(--fs-h3);
     /* Blergh */
-    background-color: var(--clr-dark);
     background-image: url(https://i.imgur.com/Jk3UQYm.jpg);
     background-size: cover;
     background-blend-mode: mulitply;
@@ -534,19 +673,26 @@ header {
     padding: .5em;
 }
 
-/*  Individual portfolio item styling */
-
+/* Individual portfolio item styling */
 .portfolio-item-individual {
-    padding: 0 2em 2em;
-    max-width: 1000px;
-    margin: 0 auto;
+    padding: 1.5em; /* Add padding inside the box */
+    max-width: 800px;
+    margin: 0 auto; /* Center the content */
+    border: 1px solid var(--clr-light); /* Add a thin border */
+    border-radius: 10px; /* Round the corners */
+    background-color: var(--clr-grey); /* Background for the box */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a soft shadow */
+    color: var(--clr-light); /* Text color for readability */
+    overflow: hidden; /* Prevent content overflow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.portfolio-item-individual p {
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
+/* Add hover effect for interactivity */
+.portfolio-item-individual:hover {
+    transform: scale(1.02); /* Slightly enlarge on hover */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
 }
+
 
 /* What I do Section */
 
@@ -557,3 +703,56 @@ header {
 .middle__icon-link {
     padding: .5em;
 }
+
+/* General button styling (shared styles) */
+.btn {
+    display: inline-block;
+    padding: 0.5em 1.5em;
+    background: var(--clr-accent); /* Accent color for the button */
+    color: var(--clr-dark); /* Text color */
+    text-decoration: none;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: var(--fw-bold);
+    border-radius: 5px; /* Optional: Rounded corners */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Specific styling for the Journal button */
+.btn-journal {
+    margin-top: 2em; /* Space above the button */
+    text-align: center; /* Ensure alignment */
+}
+
+/* Hover effect */
+.btn:hover,
+.btn-journal:hover {
+    background: #ff4d4d; /* Slightly lighter red on hover */
+    transform: scale(1.05); /* Subtle scaling effect */
+}
+
+/* Centering the button */
+.my-work .btn-journal {
+    display: inline-block; /* Makes it an inline-block element */
+    margin: 2em auto; /* Centers horizontally and adds spacing vertically */
+    text-align: center; /* Ensures text inside the button is centered */
+}
+
+}
+
+/* Individual portfolio item styling */
+.Journal {
+    padding: 1.5em; /* Add padding inside the box */
+    max-width: 800px;
+    margin: 0 auto; /* Center the content */
+    border: 1px solid var(--clr-light); /* Add a thin border */
+    border-radius: 10px; /* Round the corners */
+    background-color: var(--clr-grey); /* Background for the box */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a soft shadow */
+    color: var(--clr-light); /* Text color for readability */
+    overflow: hidden; /* Prevent content overflow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* blerg */
