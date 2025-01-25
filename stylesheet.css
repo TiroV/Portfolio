@@ -1,0 +1,226 @@
+/* Center the canvas and add a stylish yellow border */
+#game-canvas {
+    display: block;
+    margin: 0 auto;
+    border: 5px solid yellow;
+    background-color: #000;
+    box-shadow:
+        0 0 20px 10px rgba(255, 223, 0, 0.8), /* Outer glow */
+        inset 0 0 10px 5px rgba(255, 223, 0, 0.6); /* Inner glow */
+    position: relative;
+    background: rgba(0, 0, 0, 0.8);
+    transition: box-shadow 0.3s ease, background-color 0.3s ease; /* Smooth transitions for glow changes */
+}
+
+
+
+canvas {
+    position: relative;
+    z-index: 10; /* Make sure canvas is clickable */
+}
+
+
+/* Optional: Add overlay for opacity */
+body::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.1); /* Black overlay with 20% opacity */
+    z-index: 1;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Body styling for better visual alignment */
+body {
+    margin: 0;
+    padding: 20px; /*Padding for the screen */
+    background-color: #222; /* Dark grey background for the page */
+    color: white; /* Default text color */
+    font-family: Arial, sans-serif; /* Clean and simple font */
+    text-align: center; /* Center any text on the page */
+    background-image: url('overwhelm_bg.jpg'); /* Background image */
+   background-size: cover; /* Ensures the image covers the whole screen */
+   background-position: center; /* Keeps the image centered */
+   position: relative; /* Needed for absolute positioning of overlays */
+   animation: fadeInBackground 1s ease-out forwards;
+
+}
+
+@keyframes fadeInBackground {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+#game-controls {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: white;
+    font-size: 20px;
+    font-family: "Press Start 2P", sans-serif;
+    line-height: 1.5;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 15px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: left;
+    letter-spacing: 2px; /* Adjust the spacing between the letters */
+}
+
+#game-controls h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+#game-controls ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+#game-controls li {
+    margin-bottom: 10px;
+}
+
+#game-controls .controls {
+    font-weight: bold;
+    color: #FFD700; /* Gold color for the controls */
+}
+
+#game-controls .controls span {
+    font-weight: bold;
+    color: #FFD700; /* Bold gold for space bar and arrow keys */
+}
+
+/* Adjust the "restores 1 hp" in the red enemy section */
+#enemy-rules .red-enemy {
+    color: red; /* Red color for the "1 hp" text */
+    font-weight: bold;
+}
+
+/* Melee swing weight */
+#enemy-rules .meelee-swing {
+    color: green; /* green for meelee */
+    font-weight: bold;
+}
+
+/* Melee swing weight */
+#enemy-rules .eightBullets {
+    color: gold; /* green for meelee */
+    font-weight: bold;
+}
+
+
+
+#enemy-rules {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    font-family: "Press Start 2P", sans-serif;
+    font-size: 18px;
+    width: 250px;
+    text-align: left;
+}
+
+#enemy-rules h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+#enemy-rules ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+#enemy-rules li {
+    margin-bottom: 10px;
+}
+
+#enemy-rules .enemy-white {
+    color: white;
+}
+
+#enemy-rules .enemy-grey {
+    color: #a89374; /* Same color as the grey enemy */
+}
+
+#enemy-rules .enemy-purple {
+    color: #91408a; /* Same color as the purple enemy */
+}
+
+#enemy-rules .enemy-red {
+    color: red;
+    font-weight: bold; /* Make the text bold */
+}
+
+/* Hide game controls and enemy rules when the width is below 950px */
+@media (max-width: 950px) {
+  #game-controls,
+  #enemy-rules {
+    display: none;
+  }
+}
+
+/* Optional: Additional styling for small screens */
+@media (max-height: 700px) {
+  #game-controls,
+  #enemy-rules {
+    display: none;
+  }
+}
+
+/* Center the Start Button */
+.start-screen {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Press Start 2P', sans-serif;
+  color: gold;
+  font-size: 32px;
+  display: block;
+  opacity: 1;
+  transition: opacity 0.5s;
+}
+
+
+/* Optional heading or title styles */
+h1, h2, h3 {
+    margin: 20px 0;
+    color: white;
+}
+
+button#mute-button {
+    background-color: #333;
+    color: #fff;
+    border: 2px solid #ffcb3b;
+    font-family: 'Press Start 2P', sans-serif;
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s ease;
+}
+
+button#mute-button:hover {
+    background-color: #ffcb3b;
+    transform: scale(1.1); /* Slightly enlarge the button */
+    box-shadow: 0 0 10px 5px rgba(255, 203, 59, 0.8); /* Golden glow around the button */
+}
+
+button#mute-button:active {
+    transform: scale(0.95); /* Slightly shrink the button when clicked */
+}

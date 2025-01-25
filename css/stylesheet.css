@@ -371,6 +371,63 @@ header {
     animation: pulse 1.5s infinite; /* Makes the link gently "pulse" */
 }
 
+/* OverWhelm Link */
+
+/* Link styling */
+.over-link {
+    color: var(--clr-accent); /* Theme's accent color */
+    text-decoration: none; /* Remove underline */
+    font-weight: var(--fw-bold); /* Bold text */
+    position: relative; /* Needed for pseudo-elements */
+    display: inline-block; /* Allows animation effects */
+    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    padding: 10px 20px; /* Adjust the size of the button */
+    background-color: var(--clr-background); /* Add a background color */
+    border-radius: 12px; /* Rounded corners */
+    border: 2px solid var(--clr-accent); /* Border matching the accent color */
+}
+
+/* Add a bouncing underline animation */
+.over-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -0.2em; /* Place it just below the text */
+    width: 100%;
+    height: 2px;
+    background-color: var(--clr-gold);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Hover effects */
+.over-link:hover {
+    color: var(--clr-gold); /* Change text color */
+    transform: scale(1.1); /* Make it slightly larger */
+}
+
+.over-link:hover::after {
+    transform: scaleX(1); /* Expand underline */
+    transform-origin: left;
+}
+
+/* Optional: Add continuous animation */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+.over-link {
+    animation: pulse 1.5s infinite; /* Makes the link gently "pulse" */
+}
+
+/* End of OverWhelm Link  */
+
 
 
 

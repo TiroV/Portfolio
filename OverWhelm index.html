@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet"> <!-- Pixel Font -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overwhelm</title>
+
+    <!-- Link to external CSS -->
+    <link rel="stylesheet" href="stylesheet.css">
+
+    <!-- Link to external JavaScript file -->
+    <script src="OverWhelm.js" defer></script>
+</head>
+<body>
+  <!-- Game Canvas -->
+  <canvas id="game-canvas" width="800" height="650"></canvas>
+
+  <!-- Start Button -->
+  <div id="start-screen" class="start-screen">
+    <p>OverWhelm</p>
+    <p>Press any button to start</p>
+  </div>
+
+  <div id="game-controls">
+  <h2>Game Controls:</h2>
+  <ul>
+    <li><span class="controls">q, w, e, a, s, d, z, x, c</span> to shoot</li>
+        <li><span class="controls">spacebar,
+          1,2,3</span> to engage melee</li>
+        <li><span class="controls">arrow keys</span> to aim</li>
+        <li>🟡</li>
+  </ul>
+</div>
+
+<div id="enemy-rules">
+  <h2>Enemy Rules:</h2>
+  <ul>
+    <li><span class="enemy-white">White</span> : 1 HP, 1 point</li>
+    <li><span class="enemy-grey">Grey</span> : 2 HP, 2 points</li>
+    <li><span class="enemy-purple">Purple</span> : 3 HP, 3 points</li>
+    <li><span class="enemy-red">Red</span> : 1 HP, 1 point <strong>Restores <span class="red-enemy">1 HP</span> on defeat</strong></li>
+    <li> Defeating enemies restores <span class="meelee-swing">melee</span></li> and fires <span class="eightBullets">8 bullets</span>
+  </ul>
+</div>
+
+
+
+    <!-- Game logic and rendering happens via JavaScript in glurgalurg.js -->
+</body>
+</html>
