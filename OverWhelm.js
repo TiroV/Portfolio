@@ -28,8 +28,8 @@ let enemyKillCount = 0; // Track the number of enemies killed
 let keysPressed = {};
 let enemies = [];
 let bullets = [];
-let spawnInterval = 620; // Enemies spawn every second. Enemy Spawn Rate. Lower Number is faster, Higher Number Is slower.
-let minSpawnInterval = 65; // Minimum interval (100ms)
+let spawnInterval = 650; // Enemies spawn every second. Enemy Spawn Rate. Lower Number is faster, Higher Number Is slower.
+let minSpawnInterval = 80; // Minimum interval (100ms)
 let lastTimeDecrease = 0; // To track when to decrease the spawn interval
 let timeSinceStart = 0; // To track total time passed in the game
 let lastSpawn = 0;
@@ -776,6 +776,15 @@ function checkCollisions() {
 
             // Play explosion sound
             playDamageSound();
+//For Retaliation to stop the player from dying
+            performMeleeSwing();
+
+
+            // Restore melee charges only if not full
+            if (player.meleeCharges < 4) {
+                player.meleeCharges++;
+                console.log("Melee charge restored!");
+              }
 
 
 
@@ -809,7 +818,7 @@ function drawGameOver() {
     ctx.fillStyle = 'red';  // Red color for "Game OVER!" text
     ctx.font = '30px "Press Start 2P"';
     ctx.textAlign = 'center';
-    ctx.fillText('GAME OVER!', canvas.width / 2, canvas.height / 2 - 30);
+    ctx.fillText('CANNOT ESCAPE OVERWHELM.', canvas.width / 2, canvas.height / 2 - 30);
 
     ctx.font = '20px "Press Start 2P"';
     ctx.fillText('PRESS ENTER TO RESTART', canvas.width / 2, canvas.height / 2 + 30);
@@ -1103,7 +1112,7 @@ function drawScorePopups() {
 function drawRails() {
     ctx.globalCompositeOperation = 'source-over'; // Ensure standard layer drawing
     ctx.strokeStyle = 'grey';
-    ctx.lineWidth = 1;
+    ctx.lineWidth = 4;
 
     // Draw static lines for the background, ensuring it doesn't overlap player/enemies
     const directionAngles = [
@@ -1248,7 +1257,7 @@ drawStartScreen();
    // Decrease spawn interval every 3 seconds
    if (timeSinceStart - lastTimeDecrease >= 7) {
        // Reduce the spawn interval, but don't go below the minimum value
-       spawnInterval = Math.max(minSpawnInterval, spawnInterval - 15); // 100 is the speed rate reducing the spawn rate
+       spawnInterval = Math.max(minSpawnInterval, spawnInterval - 10); // 100 is the speed rate reducing the spawn rate
        lastTimeDecrease = timeSinceStart; // Reset the time tracker
 
        // Log the updated spawn interval
@@ -1281,7 +1290,7 @@ function restartGame() {
     explosions = [];
     scorePopups = [];
     lastSpawn = 0;
-    spawnInterval = 620; // Reset spawn interval
+    spawnInterval = 650; // Reset spawn interval
     player.meleeCharges = 4; // Reset melee charges
 
 
