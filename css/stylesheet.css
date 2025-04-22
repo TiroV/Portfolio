@@ -718,6 +718,30 @@ header {
 
 }
 
+.globgore {
+    background: #111;
+    color: var(--clr-gold);
+    text-align: center;
+    padding: 2.5em 0;
+    font-size: var(--fs-h3);
+    /* Blergh */
+    background-image: url(https://i.imgur.com/Jk3UQYm.jpg);
+    background-size: cover;
+    background-blend-mode: mulitply;
+
+}
+
+.fluent-gif {
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.fluent-gif:hover {
+    transform: scale(1.03);
+}
+
+
+
 /* The space where the images are displayed */
 .portfolio {
     display: grid;
