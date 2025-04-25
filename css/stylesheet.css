@@ -202,35 +202,38 @@ header {
     /* Adds space between the title and the red bar */
 }
 
-/* navbar */
+/* ========== NAVBAR ========== */
 .nav {
     position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 90vw; /* Still keeps that partial slide effect */
+    max-width: 300px;
     background: var(--clr-light);
     color: var(--clr-dark);
-    top: 0;
-    bottom: 0;
-    left: 0;
-    Right: 0;
-    z-index: 100;
+    z-index: 200;
+    padding-top: 1em;
+    background: url('https://i.imgur.com/wCmpFVF.png') no-repeat center center;
+  background-size: cover;
 
 
-
+    overflow-y: auto; /* <== KEY: Allows scrolling if content overflows */
     transform: translateX(100%);
     transition: transform 250ms cubic-bezier(.5, 0, .5, 1);
-
 }
+
+
 
 .nav__list {
     list-style: none;
     display: flex;
-    height: 100%;
+    height: 80%;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
     margin: 0;
     padding: 0;
-
-
 }
 
 .nav__link {
@@ -242,16 +245,16 @@ header {
 
 .nav__link:hover {
     color: var(--clr-accent);
-
 }
 
+/* Toggle Button */
 .nav-toggle {
-    padding: .5em;
+    padding: 0.5em;
     background: transparent;
     border: 0;
     cursor: pointer;
     position: absolute;
-    right: 0;
+    right: 1em;
     top: 1em;
     z-index: 1000;
 }
@@ -262,43 +265,26 @@ header {
 
 .nav-open .nav-toggle {
     position: fixed;
-
 }
 
-/* Skulls */
-.nav-open .Skulls {
-    transform: rotate(.625turn);
-
+/* Sticky Header */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: var(--clr-dark);
+    padding: 1.2em 2em;
 }
 
-.nav-open .Skulls::before {
-    transform: rotate(90deg) translateX(-6px);
-}
+/* ========== SKULLS (TOGGLE ICON) ========== */
 
-.nav-open .Skulls::after {
-    opacity: 0;
-}
-
+/* Base: only two lines (top and bottom) */
 .Skulls {
-    background: var(--clr-accent);
-    width: 2em;
-    height: 3px;
-    border-radius: 1em;
-    display: block;
     position: relative;
-
-
-}
-
-.Skulls::before,
-.Skulls::after {
-    background: var(--clr-accent);
     width: 2em;
     height: 3px;
-    border-radius: 1em;
-    transition: transform 250ms ease-in-out;
-
-
+    background: transparent; /* no middle line */
+    display: block;
 }
 
 .Skulls::before,
@@ -306,17 +292,28 @@ header {
     content: '';
     position: absolute;
     left: 0;
-    right: 0;
-
-
+    width: 2em;
+    height: 3px;
+    border-radius: 1em;
+    background: var(--clr-accent);
+    transition: transform 250ms ease-in-out, opacity 250ms ease-in-out;
 }
 
 .Skulls::before {
-    top: 6px;
+    top: -6px;
 }
 
 .Skulls::after {
-    bottom: 6px;
+    top: 6px;
+}
+
+/* Transform into an "X" when open */
+.nav-open .Skulls::before {
+    transform: rotate(45deg) translateY(6px);
+}
+
+.nav-open .Skulls::after {
+    transform: rotate(-45deg) translateY(-6px);
 }
 
 
@@ -397,6 +394,33 @@ header {
     animation: pulse 1.5s infinite;
     /* Makes the link gently "pulse" */
 }
+
+/* Nav Image Container */
+
+
+.nav__image-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0em 0;
+    margin-bottom: 1em;
+}
+
+.nav__image {
+    width: 100%;              /* fills the sidebar width */
+    height: auto;
+    display: block;
+    object-fit: cover;        /* crop/fill rather than stretch */
+    max-height: 180px;        /* adjust this height if needed */
+    border-bottom: 2px solid var(--clr-accent); /* optional visual separation */
+}
+
+
+
+
+
+/* End of Nav Image Container */
 
 /* OverWhelm Link */
 
