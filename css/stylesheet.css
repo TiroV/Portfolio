@@ -402,6 +402,8 @@ header {
 
 /* Link styling */
 .over-link {
+    animation: pulse 1.5s infinite;
+    /* Makes the link gently "pulse" */
     color: var(--clr-accent);
     /* Theme's accent color */
     text-decoration: none;
@@ -464,16 +466,35 @@ header {
         transform: scale(1.1);
     }
 }
-
-.over-link {
-    animation: pulse 1.5s infinite;
-    /* Makes the link gently "pulse" */
+/* Red Moon Hangs Low Hyperlinks */
+.games-link, .music-link {
+    text-decoration: none;
+    color: #ff0000;
+    cursor: pointer;
+    position: relative;
+    transition: color 0.3s ease;
 }
 
-/* End of OverWhelm Link  */
+.games-link::after,
+.music-link::after {
+    content: ' 🔗';
+    font-size: 0.8em;
+    opacity: 0.6;
+    transition: opacity 0.3s;
+}
 
+.games-link:hover,
+.music-link:hover {
+    color: #ffd700; /* golden tint on hover */
+    text-decoration: underline;
+}
 
+.games-link:hover::after,
+.music-link:hover::after {
+    opacity: 1;
+}
 
+/* End of Red Moon Hangs Low Hyperlinks */
 
 .intro__img {
     box-shadow: var(--boxShadow) max-width: 100%;
@@ -889,6 +910,78 @@ header {
     text-align: center;
     /* Ensure alignment */
 }
+
+/* Journal Section */
+
+/*Journal Card */
+.journal-scroll-container {
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 1.5rem;
+  padding: 2rem;
+  scroll-padding: 2rem;
+  -webkit-overflow-scrolling: touch;
+}
+
+.portfolio-item-individual {
+  flex: 0 0 30%; /* Smaller width */
+  scroll-snap-align: start;
+  background-color: #5f6266;
+  color: white;
+  border-radius: 1rem;
+  padding: 1.0rem;
+  box-sizing: border-box;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease;
+}
+
+.portfolio-item-individual:hover {
+  transform: scale(1.02);
+}
+
+.fluent-gif {
+  max-width: 100%;
+  border-radius: 10px;
+  margin-top: 1rem;
+}
+
+.fluent-gif-large {
+  max-width: 100%;
+  border-radius: 10px;
+  margin-top: 5rem;
+}
+
+/* Journal Cards */
+
+.journal-scroll-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.journal-scroll-container::-webkit-scrollbar-thumb {
+    background-color: var(--clr-accent);
+    border-radius: 4px;
+}
+
+.journal-entry {
+    min-width: 80%;
+    flex: 0 0 auto;
+    background-color: var(--clr-background);
+    border: 2px solid var(--clr-accent);
+    border-radius: 12px;
+    padding: 1.5rem;
+    scroll-snap-align: start;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.journal-entry img {
+    width: 100%;
+    border-radius: 8px;
+    margin-top: 1rem;
+}
+
+/*End Journal *
 
 /* Hover effect */
 .btn:hover,
