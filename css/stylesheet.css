@@ -950,15 +950,24 @@ header {
 }
 
 .portfolio-item-individual {
-  flex: 0 0 30%; /* Smaller width */
+  flex: 0 0 30%;
+  min-width: 280px; /* Prevents shrinking too small */
+  max-width: 400px; /* Optional: caps width on large screens */
   scroll-snap-align: start;
   background-color: #5f6266;
   color: white;
-  border-radius: 1rem;
+  border-radius: 2rem;
   padding: 1.0rem;
   box-sizing: border-box;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
   transition: transform 0.2s ease;
+  word-wrap: break-word;
+}
+
+@media (max-width: 768px) {
+  .portfolio-item-individual {
+    flex: 0 0 90%; /* Full width on small screens */
+  }
 }
 
 .portfolio-item-individual:hover {
